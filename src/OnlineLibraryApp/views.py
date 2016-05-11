@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import loader, Context
+
+from django.template import loader, Context, RequestContext
 # Create your views here.
+'''
 class Person(object):
     def __init__(self, name, age, sex):
         self.name = name
@@ -12,11 +14,15 @@ class Person(object):
     
 def index(request):
     t = loader.get_template("index.html")
-    user = {"name":"tom","age":23,"sex":"male"}
+#    user = {"name":"tom","age":23,"sex":"male"}
 
-    person = Person("jack", 25, "female")
+#    person = Person("jack", 25, "female")
 
-    book_list = ["python","ruby","java","c"]
+#    book_list = ["python","ruby","java","c"]
     
-    c = Context({"title":"django","user":person,"book_list":book_list})
+#    c = Context({"title":"django","user":person,"book_list":book_list})
+    c = Context()
     return HttpResponse(t.render(c))
+'''
+def index(request):
+    return render(request, 'index.html', locals())

@@ -1,0 +1,221 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<title>网上图书馆</title>
+<link type="text/css" rel="stylesheet" href="{% static 'Css/reset.css' %}" />
+<link type="text/css" rel="stylesheet" href="{% static 'Css/1024_768.css' %}" />
+<link type="text/css" rel="stylesheet" media="screen and (min-width:861px) and (max-width:960px)" href="{% static 'Css/pad_heng.css' %}" />
+<link type="text/css" rel="stylesheet" media="screen and (min-width:601px) and (max-width:860px)" href="{% static 'Css/pad.css' %}" />
+<link type="text/css" rel="stylesheet" media="screen and (min-width:481px) and (max-width:600px)" href="{% static 'Css/tel_heng.css' %}" />
+<link type="text/css" rel="stylesheet" media="screen and (max-width:480px)" href="{% static 'Css/tel.css' %}" />
+</head>
+
+<body>
+<div class="w_100_l top_title">
+	<div class="main">
+    	<p><a href="#">Enjoy your reading! </a></p>
+    </div>
+</div>
+
+<div class="w_100_l">
+	<div class="main">
+      <div class="top_banner">
+            <div class="top_logo"><img src="{% static 'Images/top_logo.jpg' %}" alt="A BOOK APART LOGO" /></div>
+            <div class="top_menu">
+            	<ul>
+                	<li class="sel"><a href="#">HOME</a></li>
+                	<li><a href="#">STORE</a></li>
+                	<li><a href="#">PRESS</a></li>
+                	<li><a href="#">ABOUT</a></li>
+                	<li><a href="#">HELP</a></li>
+						
+                </ul>
+            </div>
+			<div id="search">
+				<form action="search_page" method="get" accept-charset="utf-8">
+					<label for="search-field">SEARCH:</label>					
+					<input type="text" name="keyword" value="" id="search-field" title="Enter search here" class="blink search-field"  />
+					<input type="submit" value="GO!" class="search-button" />
+				</form>
+			</div>
+            <!--<div class="top_shop_cur"><a href="#"><img src="Images/top_shop_cur.jpg" alt="shopping car" /></a></div>-->
+        </div>
+        <span class="index_img"><img src="{% static 'Images/banner_img.jpg' %}" alt="Dan Cederholm" border="0" usemap="#Map" />
+        <map name="Map" id="Map">
+          <area shape="rect" coords="857,230,930,269" href="#" alt="buy now" />
+        </map>
+        </span>
+        <p class="index_hr"></p>
+        <!--div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div-->
+      <div class="content">
+            <h1 class="h1_book_title">Also from A Book Apart</h1>
+        	<ul>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="http://www.readanybook.com/covers/565621/small" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">Etiquette & Espionage</a></p>
+                            <p class="book_inline">by Gail Carriger</p>
+                            <a class="book_buy" href="http://www.readanybook.com/ebook/etiquette-espionage-565621" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_02.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">Just Enough Research</a></p>
+                            <p class="book_inline">by Erika Hall</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_03.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">Content Strategy for Mobile</a></p>
+                            <p class="book_inline">by Karen McGrane</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_04.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">Design Is a Job</a></p>
+                            <p class="book_inline">by Mike Monteiro</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_05.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">Mobile First</a></p>
+                            <p class="book_inline">by Luke Wroblewski</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_06.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">Designing for Emotion</a></p>
+                            <p class="book_inline">by Aarron Walter</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_07.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">Responsive Web Design</a></p>
+                            <p class="book_inline">by Ethan Marcotte</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_08.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">CSS3 for Web Designers</a></p>
+                            <p class="book_inline">by Dan Cederholm</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_09.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">HTML5 for Web Designers</a></p>
+                            <p class="book_inline">by Jeremy Keith</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_10.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">On Web Typography</a></p>
+                            <p class="book_inline">by Jason Santa Maria</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_11.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">Responsible Responsive Design</a></p>
+                            <p class="book_inline">by Scott Jehl</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dd><a href="#"><img src="Images/book_12.jpg" alt="book" /></a></dd>
+                        <dt>
+                        	<p class="book_title"><a href="#" target="_blank">On Web Typography</a></p>
+                            <p class="book_inline">by Jason Santa Maria</p>
+                            <a class="book_buy" href="#" target="_blank">DETAIL</a>
+                        </dt>
+                    </dl>
+                </li>
+            </ul>
+      </div>
+        <p class="index_hr"></p>
+        <div class="content_press">
+        	<div class="press_porsen_01">
+                <h1>Press Room</h1>
+            	<dl>
+                	<dd><img src="Images/img_men.jpg" alt="person" /></dd>
+                    <dt>
+                    	<p class="date">Apr 03, 2014</p>
+                        <p class="book_title"><a href="#" target="_blank">Design Is a Job audiobook</a></p>
+                        <p class="book_intro">
+                        We’re pleased to announce that <a href="#">Design Is a Job</a> by Mike Monteiro is now available in audiobook format, through <a href="#">Audible.com</a> and <a href="#">Amazon.com</a>. Narrated by the raconteur himself, experience the guidance, real-talk, and humor of our seminal book on design as a job.
+                        </p>
+                    </dt>
+                </dl>
+            </div>
+            <div class="press_porsen_02">
+                <h1><span class="span_2"><a href="#"> More Articles →</a></span><span class="span_1"><a href="#">Press Room RSS</a></span></h1>
+            	<dl>
+                	<dd><img src="Images/img_lives.jpg" alt="book img" /></dd>
+                    <dt>
+                    	<p class="date">Mar 31, 2014</p>
+                        <p class="book_title"><a href="#" target="_blank">A Few of Our Faves: March 31st</a></p>
+                        <p class="book_intro">
+                        As the madness of March comes to a close, we gathered up a few things that caught our attention during the last half of the month. <a href="#">Read on for more.</a>                        </p>
+                    </dt>
+                </dl>
+            </div>
+        </div>
+        <p class="index_hr"></p>
+        <h1 class="news_title">Newsletter</h1>
+        <p class="news_title_1"><span class="span_1">Keep up to date with new book releases and announcements with our newsletter.</span><span class="span_2"><img src="Images/img_inp.jpg" /></span></p>
+        <p class="index_hr" style="margin-top:20px;"></p>
+        <div class="footer">
+           <span class="span_1">&copy; Copyright 2014, A Book Apart, LLC</span>&nbsp;&nbsp;
+            <a href="#">Help & Contact us</a>
+            <a class="a1" href="#">Press Room RSS feed</a>
+            <a class="a2" href="#">abookapart on Twitter</a>
+            <span class="span_2"><b>Published by</b><img src="Images/icon_hg.jpg" align="absmiddle" /></span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

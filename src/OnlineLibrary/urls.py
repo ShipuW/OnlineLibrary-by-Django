@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
-import OnlineLibraryApp
-from OnlineLibraryApp import views
-
+#import OnlineLibraryApp
+#from OnlineLibraryApp import views
+from OnlineLibraryApp.views import index
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^OnlineLibraryApp/index/$', OnlineLibraryApp.views.index),
+    url(r'^$',index, name='index')
+#    url(r'^OnlineLibraryApp/index/$', OnlineLibraryApp.views.index),
 ]
 #urlpatterns = patterns('',
 #    url(r'^OnlineLibraryApp/index/$', OnlineLibraryApp.views.index),
