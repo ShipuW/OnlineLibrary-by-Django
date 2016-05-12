@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main_content %}
+ 
+	<div class="tuwen">
+        <h3>BOOK CATEGORY</h3>
+        <ul>
+	    {% for category in categoryList %}
+			<li>
+			  <p><span class="tutime font-size-18"><a href="#">{{ category.name }}</a></span></p>
+			</li>
+		{% endfor %}
+        </ul>
+    </div>
+	  
+{% endblock %}
