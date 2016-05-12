@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
 '''
 class Student(models.Model):
@@ -12,10 +12,11 @@ class Student(models.Model):
     def __unicode__(self):
         return self.name
 '''   
+from test.test_imageop import MAX_LEN
 class Category(models.Model):
 #    id = models.IntegerField(primary_key=True,)
-    name = models.CharField(max_length = 50)
-
+    name = models.CharField(max_length = 50, default="category")
+    imageurl = models.CharField(max_length = 200, default="")
     class Meta:
         db_table = 'category'
     def __unicode__(self):
@@ -23,23 +24,26 @@ class Category(models.Model):
     
 class Book(models.Model):
 #    id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length = 100)
-    description = models.CharField(max_length = 200)
-    imageurl = models.CharField(max_length = 200)
-    contenturl = models.CharField(max_length = 200)
+    name = models.CharField(max_length = 100, default="book")
+    author = models.CharField(max_length = 100, default="author", blank=True)
+    description = models.CharField(max_length = 200, default="Enjoy Reading!")
+    imageurl = models.CharField(max_length = 200, default="http://www.readanybook.com/covers/105799/small")
+    contenturl = models.CharField(max_length = 200, default="#")
     categorys = models.ManyToManyField(Category,through = "BookCategory")
-    
+    largeimageurl = models.CharField(max_length = 200, default="http://www.readanybook.com/covers/105799/big")
     class Meta:
         db_table = 'book'
+        ordering = ['-id']
     def __unicode__(self):
         return self.name   
     
 class User(models.Model):
 #    id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length = 50)
-    password = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 50, default="new user")
+    password = models.CharField(max_length = 50, default="123456")
     favoritebooks = models.ManyToManyField(Book,through = "BookMark")
-    regtime = models.DateField()
+    regtime = models.DateField(auto_now_add = True)
+    phone_number = models.CharField(max_length = 50, default="13900000000")
     class Meta:
         db_table = 'user'
     def __unicode__(self):
@@ -49,7 +53,7 @@ class BookMark(models.Model):
 #    id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User)
     book = models.ForeignKey(Book)
-    attime = models.DateField()
+    attime = models.DateField(auto_now_add = True)
     
     class Meta:
         db_table = 'bookmark'
@@ -68,11 +72,12 @@ class BookCategory(models.Model):
     
 class Comment(models.Model):
 #    id = models.IntegerField(primary_key=True)
-    content = models.CharField(max_length = 200)
-    attime = models.DateField()
+    content = models.CharField(max_length = 200, default="new comment")
+    attime = models.DateTimeField(auto_now_add = True)
     book = models.ForeignKey(Book)
     user = models.ForeignKey(User)
+    rank = models.IntegerField(default=5)
     class Meta:
         db_table = 'comment'
     def __unicode__(self):
-        return self.book
+        return self.user.name + ":" + self.book.name

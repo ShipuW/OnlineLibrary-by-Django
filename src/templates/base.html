@@ -1,0 +1,95 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<title>{{ SITE_NAME }}</title>
+{% block custom_css %}{% endblock %}
+<link type="text/css" rel="stylesheet" href="{% static 'Css/reset.css' %}" />
+<link type="text/css" rel="stylesheet" href="{% static 'Css/main.css' %}" />
+<!--link type="text/css" rel="stylesheet" media="screen and (min-width:861px) and (max-width:960px)" href="{% static 'Css/pad_heng.css' %}" />
+<link type="text/css" rel="stylesheet" media="screen and (min-width:601px) and (max-width:860px)" href="{% static 'Css/pad.css' %}" />
+<link type="text/css" rel="stylesheet" media="screen and (min-width:481px) and (max-width:600px)" href="{% static 'Css/tel_heng.css' %}" />
+<link type="text/css" rel="stylesheet" media="screen and (max-width:480px)" href="{% static 'Css/tel.css' %}" /-->
+{% block custom_js %}{% endblock %}
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/sliders.js' %}"></script>
+</head>
+
+<body>
+<div class="w_100_l top_title">
+	<div class="main">
+    	<p><a href="#">Enjoy your reading! </a></p>
+    </div>
+</div>
+
+<div class="w_100_l">
+	<div class="main">
+      <div class="top_banner">
+            <div class="top_logo"><img src="{% static 'Images/top_logo.jpg' %}" alt="A BOOK APART LOGO" /></div>
+            <div class="top_menu">
+            	<ul>
+                	<li class="sel"><a href="{% url 'index' %}">INDEX</a></li>
+                	<li><a href="{% url 'category' %}">CATEGORY</a></li>
+                	<li><a href="#">SIGN IN</a></li>
+                	<li><a href="#">SING UP</a></li>
+                	<li><a href="#">ABOUT</a></li>
+						
+                </ul>
+            </div>
+			<div class="top_search">
+				<form action="search_page" method="get" accept-charset="utf-8">
+					<label for="search-field">SEARCH:</label>					
+					<input type="text" name="keyword" value="" id="search-field" title="Enter search here" class="blink search-field"  />
+					<input type="submit" value="GO!" class="search-button" />
+				</form>
+			</div>
+            <!--<div class="top_shop_cur"><a href="#"><img src="Images/top_shop_cur.jpg" alt="shopping car" /></a></div>-->
+        </div>
+        <p class="index_hr"></p>
+			{% block main_content %}{% endblock %}
+        <p class="index_hr"></p>
+        <div class="content_press">
+        	<div class="press_porsen_01">
+                <h1>Press Room</h1>
+            	<dl>
+                	<dd><img src="{% static 'Images/img_men.jpg' %}" alt="person" /></dd>
+                    <dt>
+                    	<p class="date">Apr 03, 2014</p>
+                        <p class="book_title"><a href="#" target="_blank">Design Is a Job audiobook</a></p>
+                        <p class="book_intro">
+                        We’re pleased to announce that <a href="#">Design Is a Job</a> by Mike Monteiro is now available in audiobook format, through <a href="#">Audible.com</a> and <a href="#">Amazon.com</a>. Narrated by the raconteur himself, experience the guidance, real-talk, and humor of our seminal book on design as a job.
+                        </p>
+                    </dt>
+                </dl>
+            </div>
+            <div class="press_porsen_02">
+                <h1><span class="span_2"><a href="#"> More Articles →</a></span><span class="span_1"><a href="#">Press Room RSS</a></span></h1>
+            	<dl>
+                	<dd><img src="{% static 'Images/img_lives.jpg' %}" alt="book img" /></dd>
+                    <dt>
+                    	<p class="date">Mar 31, 2014</p>
+                        <p class="book_title"><a href="#" target="_blank">A Few of Our Faves: March 31st</a></p>
+                        <p class="book_intro">
+                        As the madness of March comes to a close, we gathered up a few things that caught our attention during the last half of the month. <a href="#">Read on for more.</a>                        </p>
+                    </dt>
+                </dl>
+            </div>
+        </div>
+        <p class="index_hr"></p>
+        <h1 class="news_title">Newsletter</h1>
+        <p class="news_title_1"><span class="span_1">Keep up to date with new book releases and announcements with our newsletter.</span><span class="span_2"><img src="{% static 'Images/img_inp.jpg' %}" /></span></p>
+        <p class="index_hr" style="margin-top:20px;"></p>
+        <div class="footer">
+           <span class="span_1">&copy; Copyright 2014, A Book Apart, LLC</span>&nbsp;&nbsp;
+            <a href="#">Help & Contact us</a>
+            <a class="a1" href="#">Press Room RSS feed</a>
+            <a class="a2" href="#">abookapart on Twitter</a>
+            <span class="span_2"><b>Published by</b><img src="{% static 'Images/icon_hg.jpg' %}" align="absmiddle" /></span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
