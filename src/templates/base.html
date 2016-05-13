@@ -27,19 +27,23 @@
 <div class="w_100_l">
 	<div class="main">
       <div class="top_banner">
-            <div class="top_logo"><img src="{% static 'Images/top_logo.jpg' %}" alt="A BOOK APART LOGO" /></div>
+            <div class="top_logo"><a href="{% url 'index' %}"><img src="{% static 'Images/top_logo.jpg' %}" alt="A BOOK APART LOGO" /></a></div>
             <div class="top_menu">
             	<ul>
                 	<li class="sel"><a href="{% url 'index' %}">INDEX</a></li>
                 	<li><a href="{% url 'category' %}">CATEGORY</a></li>
-                	<li><a href="#">SIGN IN</a></li>
-                	<li><a href="#">SING UP</a></li>
+					{% if not request.user.is_authenticated %}
+						<li><a href="{% url 'login' %}">SIGN IN</a></li>
+						<li><a href="{% url 'reg' %}">SING UP</a></li>
+					{% else %}
+						<li><a href="{% url 'logout' %}">SING OUT</a></li>
+					{% endif %}
                 	<li><a href="#">ABOUT</a></li>
 						
                 </ul>
             </div>
 			<div class="top_search">
-				<form action="search_page" method="get" accept-charset="utf-8">
+				<form action="{% url 'booklist' %}" method="get" accept-charset="utf-8">
 					<label for="search-field">SEARCH:</label>					
 					<input type="text" name="keyword" value="" id="search-field" title="Enter search here" class="blink search-field"  />
 					<input type="submit" value="GO!" class="search-button" />

@@ -88,10 +88,10 @@ body{ background:#fff;}
 #pagination-flickr a:hover { border:solid 1px #000; background:#0063DC; color:#FFF; }
 
 /* 幻灯片 */
-.banner { height : 280px; width : 670px; overflow : hidden; }
-#slide-runner { height : 280px; width : 670px; overflow : hidden; position : absolute; }
+.banner { width:100%; height:auto; overflow : hidden; }
+#slide-runner { height : 280px; width : 100%; display:inline; float:left; position:relative; }
 #slide-holder img { position : absolute; }
-#slide-controls { left : 0; bottom : 0px; width : 670px; height : 34px; display : none; position : absolute; background : url(../Images/slide-bg.png) 0 0; }
+#slide-controls { left : 0; bottom : 0px; width : 100%; height : 34px; display : none; position : absolute; background : url(../Images/slide-bg.png) 0 0; }
 #slide-controls p.text { float : left; color : #fff; display : inline; line-height : 16px; margin : 10px 0 0 20px; }
 #slide-controls p#slide-nav { float : right; height : 24px; display : inline; margin : 5px 0px 0 0; }
 #slide-controls p#slide-nav a { float : left; width : 24px; height : 24px; display : inline; font-size : 11px; margin : 0 5px 0 0; line-height : 24px; text-align : center; color: #fff }
@@ -111,4 +111,78 @@ body{ background:#fff;}
 .tutime a { color: #38485A;text-decoration:none; }
 .tutime a:hover { color: #066;text-decoration:none }
 .tutime { background: url(../Images/datepng.png) no-repeat left center; padding-left: 15px }
+.tucomment a { color: #38485A;text-decoration:none; }
+.tucomment a:hover { color: #066;text-decoration:none }
+.tucomment { background: url(../Images/comments.gif) no-repeat left center; padding-left: 15px }
+
 .tuwen li:hover { background: #f4f3f3 }
+
+/*------------------------ Comments ------------------------*/
+
+.commentstitle {
+	border-top: 1px solid #e3e5e4;
+}
+
+h3 {
+	color: #3e606f;
+	font-size: 18px;
+	line-height: 130%;
+}
+
+.commentstitle h3 {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.commentsnumber {
+	color: #db5104;
+}
+
+.trackback {
+	float: right;
+	padding-top: 10px;
+	padding-right: 12px;
+}
+
+.trackback a {
+	color: #999999;
+	font-size: 12px;
+}
+
+.commentlist {
+	color: #666666;
+	list-style-type: none;
+	padding: 10px 12px;
+}
+
+.commentlist a {
+	color: #0066cc;
+}
+
+.commentlist a:hover {
+	color: #db5104;
+	border-bottom: 1px solid #db5104;
+}
+
+.commentlist li {
+	border-bottom: 1px solid #e3e5e4;
+	padding: 15px 5px 30px 5px;
+}
+
+.alt {
+	background-color: #f9f9f9;
+}
+
+.top, .time a {
+	color: #999999;
+}
+
+.avatar {
+	float: right;
+	width: 32px;
+	height: 32px;
+	display: block;
+	padding: 2px;
+	border: 1px solid #dddddd;
+	margin: 5px;
+}

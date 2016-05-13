@@ -37,17 +37,17 @@ class Book(models.Model):
     def __unicode__(self):
         return self.name   
     
-class User(models.Model):
+class User(AbstractUser):
 #    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length = 50, default="new user")
-    password = models.CharField(max_length = 50, default="123456")
+    simple_password = models.CharField(max_length = 50, default="123456")
     favoritebooks = models.ManyToManyField(Book,through = "BookMark")
     regtime = models.DateField(auto_now_add = True)
     phone_number = models.CharField(max_length = 50, default="13900000000")
     class Meta:
         db_table = 'user'
     def __unicode__(self):
-        return self.name
+        return self.username
     
 class BookMark(models.Model):
 #    id = models.IntegerField(primary_key=True)
@@ -68,12 +68,14 @@ class BookCategory(models.Model):
     class Meta:
         db_table = 'bookcategory'
     def __unicode__(self):
-        return self.name
+        return self.category.name+':'+self.book.name
     
 class Comment(models.Model):
 #    id = models.IntegerField(primary_key=True)
     content = models.CharField(max_length = 200, default="new comment")
     attime = models.DateTimeField(auto_now_add = True)
+    username = models.CharField(max_length=30, blank=True, null=True)
+    email = models.EmailField(max_length=50, blank=True, null=True)
     book = models.ForeignKey(Book)
     user = models.ForeignKey(User)
     rank = models.IntegerField(default=5)

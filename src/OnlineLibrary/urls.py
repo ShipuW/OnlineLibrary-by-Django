@@ -22,9 +22,8 @@ from OnlineLibraryApp.views import index, booklist, category
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',index, name='index'),
-    url(r'^booklist/$',booklist, name='booklist'),
-    url(r'^category/$',category, name='category'),
+    url(r'^',include('OnlineLibraryApp.urls'))
+    
 #    url(r'^OnlineLibraryApp/index/$', OnlineLibraryApp.views.index),
 ]
 #urlpatterns = patterns('',

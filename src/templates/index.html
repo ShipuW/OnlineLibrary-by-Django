@@ -2,23 +2,22 @@
 {% load staticfiles %}
 {% block main_content %}
 {% include 'ad.html' %}
-	<span class="index_img"><img src="{% static 'Images/banner_img.jpg' %}" alt="Dan Cederholm" border="0" usemap="#Map" />
+	<!--span class="index_img"><img src="{% static 'Images/banner_img.jpg' %}" alt="Dan Cederholm" border="0" usemap="#Map" />
         <map name="Map" id="Map">
 			<area shape="rect" coords="857,230,930,269" href="#" alt="buy now" />
         </map>
-    </span>     
+    </span-->     
 	<div class="content">
-            <h1 class="h1_book_title">NEW BOOKS</h1>
-			<p class="book_more"><a href="{% url 'booklist' %}" target="_blank">more</a></p>
+            <h1 class="h1_book_title">NEW BOOKS    <a href="{% url 'booklist' %}" target="_blank">more</a></h1>
         	<ul>
 				{% for book in index_bookList %}
             	<li>
                 	<dl>
-                    	<dd><a href="#"><img src="{{ book.imageurl }}" alt="book" /></a></dd>
+                    	<dd><a href="{% url 'detail' %}?id={{ book.id }}"><img src="{{ book.imageurl }}" alt="book" /></a></dd>
                         <dt>
-                        	<p class="book_title"><a href="#" target="_blank">{{ book.name }}</a></p>
+                        	<p class="book_title"><a href="{% url 'detail' %}?id={{ book.id }}" target="_blank">{{ book.name }}</a></p>
                             <p class="book_inline">by {{ book.author }}</p>
-                            <a class="book_detail" href="{{ book.contenturl }}" target="_blank">DETAIL</a>
+                            <a class="book_detail" href="{{ book.contenturl }}" target="_blank">READ NOW!</a>
                         </dt>
                     </dl>
                 </li>

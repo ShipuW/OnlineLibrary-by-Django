@@ -1,9 +1,21 @@
 import logging
 from django.shortcuts import render, redirect, HttpResponse
 from django.template import loader, Context, RequestContext
-from models import Category, Book, User, BookMark, BookCategory, Comment
+#from models import Category, Book, User, BookMark, BookCategory, Comment
 from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
 from django.conf import settings
+from models import *
+from forms import *
+
+from django.core.urlresolvers import reverse
+
+from django.contrib.auth import logout, login, authenticate
+from django.contrib.auth.hashers import make_password
+
+from django.db import connection
+from django.db.models import Count
+
+import json
 
 logger = logging.getLogger('OnlineLibraryApp.views')
 
@@ -30,6 +42,7 @@ def index(request):
     return HttpResponse(t.render(c))
 '''
 def global_setting(request):
+    
     return{'SITE_URL': settings.SITE_URL,
            'SITE_NAME': settings.SITE_NAME,
            'SITE_DESC': settings.SITE_DESC,
@@ -51,13 +64,27 @@ def index(request):
 
 def booklist(request):
     try:
-        bookList = Book.objects.all()
-        paginator = Paginator(bookList, 12)
-        try:
-            page = int(request.GET.get('page',1))
-            bookList = paginator.page(page)
-        except (EmptyPage, InvalidPage, PageNotAnInteger):
-            bookList = paginator.page(1)
+        cid = request.GET.get('category',None)
+        kid = request.GET.get('keyword',None)
+        if (kid):
+            '''
+            category_list = Category.objects.all().filter( name__icontains = kid )
+            bookList2 = []
+            for category in category_list:
+                bookList1 =  Book.objects.all().filter( categorys__exact = category )
+                bookList2.extend(bookList1)
+            '''
+            bookList = Book.objects.all().filter( name__icontains = kid )
+            #bookList = getPage(request, set(bookList2.extend(bookList3)))
+            for b in bookList:
+                print b
+        else:
+            if (cid):
+                category = Category.objects.all().get(id = cid)
+                bookList = getPage(request, Book.objects.all().filter( categorys__exact = category ))
+            else:
+                bookList = getPage(request, Book.objects.all())
+
                 
     except Exception as e:
         logger.error(e)
@@ -72,18 +99,104 @@ def category(request):
         
     return render(request, 'category.html', locals())
         
-'''        
-def column(request):
+
+
+def getPage(request, bookList):
+    paginator = Paginator(bookList, 12)
     try:
-        cid = request.GET.get('cid', None)
+        page = int(request.GET.get('page',1))
+        bookList = paginator.page(page)
+    except (EmptyPage, InvalidPage, PageNotAnInteger):
+        bookList = paginator.page(1)
+    return bookList
+
+def detail(request):
+    try:   
+        id = request.GET.get('id', None)
         try:
-            pass
-            category = Category.objects.get(pk=cid)
-        except (cid != '1', cid != '2'):
+            book = Book.objects.all().get(id=id)
+        except Book.DoesNotExist:
             return render(request, 'failure.html', {'reason': ''})
-        article_list = Article.objects.filter(category=category)
-        article_list = getPage(request, article_list)
+
+        commentList = book.comment_set.all()
     except Exception as e:
         logger.error(e)
-    return render(request, 'category.html', locals())
-    '''
+    
+    comment_form = CommentForm({'author': request.user.username,
+                                'email': request.user.email,
+                                'book': id} if request.user.is_authenticated() else{'book': id})
+    
+    return render(request, 'detail.html', locals())
+
+def comment_post(request):
+    try:
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = Comment.objects.create(username=comment_form.cleaned_data["author"],
+                                                  email=comment_form.cleaned_data["email"],
+                                                  content=comment_form.cleaned_data["comment"],
+                                                  book_id=comment_form.cleaned_data["book"],
+                                                  user=request.user if request.user.is_authenticated() else None)
+            comment.save()
+        else:
+            return render(request, 'failure.html', {'reason': comment_form.errors})
+    except Exception as e:
+        logger.error(e)
+    return redirect(request.META['HTTP_REFERER'])
+
+
+def do_logout(request):
+    try:
+        logout(request)
+    except Exception as e:
+        print e
+        logger.error(e)
+    return redirect(request.META['HTTP_REFERER'])
+
+
+def do_reg(request):
+    try:
+        if request.method == 'POST':
+            reg_form = RegForm(request.POST)
+            if reg_form.is_valid():
+                
+                user = User(username=reg_form.cleaned_data["username"],
+                            mail=reg_form.cleaned_data["email"],
+                            password=make_password(reg_form.cleaned_data["password"]),)
+                user.save()
+
+                
+                user.backend = 'django.contrib.auth.backends.ModelBackend' 
+                login(request, user)
+                return redirect(request.POST.get('source_url'))
+            else:
+                return render(request, 'failure.html', {'reason': reg_form.errors})
+        else:
+            reg_form = RegForm()
+    except Exception as e:
+        logger.error(e)
+    return render(request, 'reg.html', locals())
+
+
+def do_login(request):
+    try:
+        if request.method == 'POST':
+            login_form = LoginForm(request.POST)
+            if login_form.is_valid():
+                
+                username = login_form.cleaned_data["username"]
+                password = login_form.cleaned_data["password"]
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                    user.backend = 'django.contrib.auth.backends.ModelBackend' 
+                    login(request, user)
+                else:
+                    return render(request, 'failure.html', {'reason': 'login failed'})
+                return redirect(request.POST.get('source_url'))
+            else:
+                return render(request, 'failure.html', {'reason': login_form.errors})
+        else:
+            login_form = LoginForm()
+    except Exception as e:
+        logger.error(e)
+    return render(request, 'login.html', locals())

@@ -7,7 +7,7 @@
         <ul>
 	    {% for category in categoryList %}
 			<li>
-			  <p><span class="tutime font-size-18"><a href="#">{{ category.name }}</a></span></p>
+			  <p><span class="tutime font-size-18"><a href="{% url 'booklist' %}?category={{ category.id }}">{{ category.name }}</a></span></p>
 			</li>
 		{% endfor %}
         </ul>

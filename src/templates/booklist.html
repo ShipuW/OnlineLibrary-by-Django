@@ -7,31 +7,17 @@
 				{% for book in bookList %}
             	<li>
                 	<dl>
-                    	<dd><a href="#"><img src="{{ book.imageurl }}" alt="book" /></a></dd>
+                    	<dd><a href="{% url 'detail' %}?id={{ book.id }}"><img src="{{ book.imageurl }}" alt="book" /></a></dd>
                         <dt>
-                        	<p class="book_title"><a href="#" target="_blank">{{ book.name }}</a></p>
+                        	<p class="book_title"><a href="{% url 'detail' %}?id={{ book.id }}" target="_blank">{{ book.name }}</a></p>
                             <p class="book_inline">by {{ book.author }}</p>
 							<p class="book_inline">comment({{ book.comment_set.all.count }})</p>
-                            <a class="book_detail" href="{{ book.contenturl }}" target="_blank">DETAIL</a>
+                            <a class="book_detail" href="{{ book.contenturl }}" target="_blank">READ NOW!</a>
                         </dt>
                     </dl>
                 </li>
 				{% endfor %}
             </ul>
     </div>
-	<div id="pagination">
-		<ul id="pagination-flickr">
-		{% if bookList.has_previous %}
-			<li class="previous"><a href="?page={{ bookList.previous_page_number }}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.month %}&month={{ request.GET.month }}{% endif %}{% if request.GET.cid %}&cid={{ request.GET.cid }}{% endif %}">&laquo;上一页</a></li>
-		{% else %}
-			<li class="previous-off">&laquo;上一页</li>
-		{% endif %}
-			<li class="active">{{ bookList.number }}/{{ bookList.paginator.num_pages }}</li>
-		{% if bookList.has_next %}
-			<li class="next"><a href="?page={{ bookList.next_page_number }}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.month %}&month={{ request.GET.month }}{% endif %}{% if request.GET.cid %}&cid={{ request.GET.cid }}{% endif %}">下一页 &raquo;</a></li>
-		{% else %}
-			<li class="next-off">下一页 &raquo;</li>
-		{% endif %}
-		</ul>
-	</div>
+{% include 'pagination.html' %}
 {% endblock %}
