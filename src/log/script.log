@@ -1477,3 +1477,5 @@ Traceback (most recent call last):
 NoReverseMatch: Reverse for 'do_logout' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
 2016-05-13 11:25:46,823 [Thread-4:7732] [django.request:182] [base:get_response] [WARNING]- Not Found: /search_page
 2016-05-13 11:26:40,470 [Thread-6:4224] [django.request:182] [base:get_response] [WARNING]- Not Found: /search_page
+2016-05-13 18:30:27,469 [Thread-8:9684] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-13 18:41:53,039 [Thread-2:3576] [django.request:103] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /reg/

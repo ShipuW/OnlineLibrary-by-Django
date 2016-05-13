@@ -34,7 +34,7 @@
 					</div>
 					<p>{{ book.description }}</p>
 					<div class="grid-categories">
-						<h4>READ NOW!  <a href="{{ book.contenturl }}" rel="bookmark" title="{{ book.title }}" target="_blank">{{ book.contenturl }}</a></h4>
+						<h4>READ NOW!  <a href="{{ book.contenturl }}" rel="bookmark" title="{{ book.name }}" target="_blank">{{ book.contenturl }}</a></h4>
 					</div>
 				</div>
 				
@@ -72,6 +72,7 @@
 					</div>
 					<div class="clearfix"> </div>
 						{{ comment_form.comment }}
+						{{ comment_form.book }}
 					<input type="submit" value="Submit">
 				</form>
 			</div>

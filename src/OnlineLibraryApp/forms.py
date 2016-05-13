@@ -34,6 +34,6 @@ class CommentForm(forms.Form):
                                                            "required": "required", "cols": "25",
                                                            "rows": "5", "tabindex": "4"}),
                                                     error_messages={"required":"comment cannot be null",})
-    #article = forms.CharField(widget=forms.HiddenInput())
+    book = forms.CharField(widget=forms.HiddenInput())
 
 

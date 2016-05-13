@@ -125,18 +125,25 @@ def detail(request):
     comment_form = CommentForm({'author': request.user.username,
                                 'email': request.user.email,
                                 'book': id} if request.user.is_authenticated() else{'book': id})
-    
+#     print("----------------")
+#     print(comment_form)
+#     print("----------------")
     return render(request, 'detail.html', locals())
 
 def comment_post(request):
     try:
+        
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
-            comment = Comment.objects.create(username=comment_form.cleaned_data["author"],
-                                                  email=comment_form.cleaned_data["email"],
-                                                  content=comment_form.cleaned_data["comment"],
-                                                  book_id=comment_form.cleaned_data["book"],
-                                                  user=request.user if request.user.is_authenticated() else None)
+
+#             print(comment_form.cleaned_data["book"])
+#             print(request.user)
+            comment = Comment(username=comment_form.cleaned_data["author"],
+                              email=comment_form.cleaned_data["email"],
+                              content=comment_form.cleaned_data["comment"],
+                              book_id=comment_form.cleaned_data["book"],
+                              user=request.user if request.user.is_authenticated() else None)
+#             print(comment)
             comment.save()
         else:
             return render(request, 'failure.html', {'reason': comment_form.errors})
@@ -158,11 +165,15 @@ def do_reg(request):
     try:
         if request.method == 'POST':
             reg_form = RegForm(request.POST)
+            
             if reg_form.is_valid():
-                
                 user = User(username=reg_form.cleaned_data["username"],
-                            mail=reg_form.cleaned_data["email"],
+                            email=reg_form.cleaned_data["email"],
                             password=make_password(reg_form.cleaned_data["password"]),)
+                #user = User.objects.create(username=reg_form.cleaned_data["username"],
+                #            email=reg_form.cleaned_data["email"],
+                #            password=make_password(reg_form.cleaned_data["password"]),)
+                #print(user)
                 user.save()
 
                 
