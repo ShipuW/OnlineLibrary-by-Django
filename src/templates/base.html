@@ -34,9 +34,9 @@
                 	<li><a href="{% url 'category' %}">CATEGORY</a></li>
 					{% if not request.user.is_authenticated %}
 						<li><a href="{% url 'login' %}">SIGN IN</a></li>
-						<li><a href="{% url 'reg' %}">SING UP</a></li>
+						<li><a href="{% url 'reg' %}">SIGN UP</a></li>
 					{% else %}
-						<li><a href="{% url 'logout' %}">SING OUT</a></li>
+						<li><a href="{% url 'logout' %}">SIGN OUT</a></li>
 					{% endif %}
                 	<li><a href="#">ABOUT</a></li>
 						
