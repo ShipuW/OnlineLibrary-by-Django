@@ -50,7 +50,13 @@
 				{% endif %}
 				{% for comment in commentList %}
 					<li  class="alt" id="{{ comment.id }}}">
-						<div class="top"><a href='#' rel='external nofollow' class='url'>{{ comment.user.id }}</a><span class="time"> @ <a href="#" title="">{{ comment.attime | date:'Y-m-d H:i:s' }}</a></span></div>
+						<div class="top"><a href='#' rel='external nofollow' class='url'>
+						{% if comment.username %}
+							{{ comment.username }}
+						{% else %}
+							{{ comment.user.username }}
+						{% endif %}
+						</a><span class="time"> @ <a href="#" title="">{{ comment.attime | date:'Y-m-d H:i:s' }}</a></span></div>
 	
 						<div class="body">
                             <p>{{ comment.content }}</p>

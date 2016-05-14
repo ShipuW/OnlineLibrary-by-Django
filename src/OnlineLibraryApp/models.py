@@ -77,7 +77,7 @@ class Comment(models.Model):
     username = models.CharField(max_length=30, blank=True, null=True)
     email = models.EmailField(max_length=50, blank=True, null=True)
     book = models.ForeignKey(Book)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, blank=True)
     rank = models.IntegerField(default=5)
     class Meta:
         db_table = 'comment'

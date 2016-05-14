@@ -138,12 +138,20 @@ def comment_post(request):
 
 #             print(comment_form.cleaned_data["book"])
 #             print(request.user)
-            comment = Comment(username=comment_form.cleaned_data["author"],
-                              email=comment_form.cleaned_data["email"],
-                              content=comment_form.cleaned_data["comment"],
-                              book_id=comment_form.cleaned_data["book"],
-                              user=request.user if request.user.is_authenticated() else None)
-#             print(comment)
+            if request.user.is_authenticated():
+                comment = Comment(username=comment_form.cleaned_data["author"],
+                                  email=comment_form.cleaned_data["email"],
+                                  content=comment_form.cleaned_data["comment"],
+                                  book_id=comment_form.cleaned_data["book"],
+                                  user=request.user)
+            else:
+                defaultUser=User.objects.all().get(id=6)
+                comment = Comment(username=comment_form.cleaned_data["author"],
+                                  email=comment_form.cleaned_data["email"],
+                                  content=comment_form.cleaned_data["comment"],
+                                  book_id=comment_form.cleaned_data["book"],
+                                  user=defaultUser)
+            #print(request.user if request.user.is_authenticated() else None)
             comment.save()
         else:
             return render(request, 'failure.html', {'reason': comment_form.errors})

@@ -1479,3 +1479,8 @@ NoReverseMatch: Reverse for 'do_logout' with arguments '()' and keyword argument
 2016-05-13 11:26:40,470 [Thread-6:4224] [django.request:182] [base:get_response] [WARNING]- Not Found: /search_page
 2016-05-13 18:30:27,469 [Thread-8:9684] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2016-05-13 18:41:53,039 [Thread-2:3576] [django.request:103] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /reg/
+2016-05-14 16:15:55,134 [Thread-21:5084] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-14 16:16:53,026 [Thread-41:3144] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-14 16:22:03,809 [Thread-82:3244] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-14 17:43:23,020 [Thread-19:9116] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-14 20:51:53,875 [Thread-67:11228] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
