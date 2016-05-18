@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^detail/$', detail, name='detail'),
     url(r'^comment/post/$', comment_post, name='comment_post'),
     url(r'^logout/', do_logout, name='logout'),
+    url(r'^like/', do_like, name='like'),
+    url(r'^unlike/', do_unlike, name='unlike'),
     url(r'^reg/', do_reg, name='reg'),
     url(r'^login/', do_login, name='login'),
 

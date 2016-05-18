@@ -41,6 +41,8 @@ def index(request):
     c = Context()
     return HttpResponse(t.render(c))
 '''
+isLike = False
+
 def global_setting(request):
     
     return{'SITE_URL': settings.SITE_URL,
@@ -66,24 +68,36 @@ def booklist(request):
     try:
         cid = request.GET.get('category',None)
         kid = request.GET.get('keyword',None)
-        if (kid):
-            '''
-            category_list = Category.objects.all().filter( name__icontains = kid )
-            bookList2 = []
-            for category in category_list:
-                bookList1 =  Book.objects.all().filter( categorys__exact = category )
-                bookList2.extend(bookList1)
-            '''
-            bookList = Book.objects.all().filter( name__icontains = kid )
-            #bookList = getPage(request, set(bookList2.extend(bookList3)))
+        fid = request.GET.get('favorites',None)
+        if (fid):
+            fid = request.user.id
+            print fid
+            user = User.objects.all().get(id = fid)
+            print user
+            #bookList = user.favoritebooks.all()
+            bookList = getPage(request, user.favoritebooks.all())
+            print ("123")
             for b in bookList:
                 print b
         else:
-            if (cid):
-                category = Category.objects.all().get(id = cid)
-                bookList = getPage(request, Book.objects.all().filter( categorys__exact = category ))
+            if (kid):
+                '''
+                category_list = Category.objects.all().filter( name__icontains = kid )
+                bookList2 = []
+                for category in category_list:
+                    bookList1 =  Book.objects.all().filter( categorys__exact = category )
+                    bookList2.extend(bookList1)
+                '''
+                bookList = Book.objects.all().filter( name__icontains = kid )
+                #bookList = getPage(request, set(bookList2.extend(bookList3)))
+                #for b in bookList:
+                #    print b
             else:
-                bookList = getPage(request, Book.objects.all())
+                if (cid):
+                    category = Category.objects.all().get(id = cid)
+                    bookList = getPage(request, Book.objects.all().filter( categorys__exact = category ))
+                else:
+                    bookList = getPage(request, Book.objects.all())
 
                 
     except Exception as e:
@@ -115,7 +129,28 @@ def detail(request):
         id = request.GET.get('id', None)
         try:
             book = Book.objects.all().get(id=id)
+            if request.user.is_authenticated():
+                print
+                likeRecord = BookMark.objects.all().filter(book_id__exact = id, user__exact = request.user)
+#                 for r in likeRecord:
+#                     print r
+                if likeRecord:
+                    isLike = True
+                else:
+                    isLike = False
+            else:
+                pass
+            print isLike
+            '''
+            print book
+            if book:
+                pass
+            else:
+                print ("1213")
+                return render(request, 'failure.html', {'reason': ''})
+            '''
         except Book.DoesNotExist:
+            
             return render(request, 'failure.html', {'reason': ''})
 
         commentList = book.comment_set.all()
@@ -160,6 +195,45 @@ def comment_post(request):
     return redirect(request.META['HTTP_REFERER'])
 
 
+def do_like(request):
+    #print ("tests")
+    try:
+        #print ("tests")
+        if request.user.is_authenticated():
+            '''
+            bid = request.GET.get('id',None)
+            user = User.objects.get(id = request.user.id)
+            book = Book.objects.get(id = bid)
+            user.favoritebooks.add(book)
+            '''
+            bookmark = BookMark(user = request.user,
+                                book_id = request.GET.get('id',None))
+            bookmark.save()
+            
+        else:
+            pass
+    except Exception as e:
+        print e
+        logger.error(e)
+        
+    return redirect(request.META['HTTP_REFERER'])
+
+def do_unlike(request):
+    #print ("tests")
+    try:
+        #print ("tests")
+        if request.user.is_authenticated():
+            BookMark.objects.all().filter(book_id__exact = request.GET.get('id',None), user__exact = request.user).delete()
+
+            
+        else:
+            pass
+    except Exception as e:
+        print e
+        logger.error(e)
+        
+    return redirect(request.META['HTTP_REFERER'])
+
 def do_logout(request):
     try:
         logout(request)
@@ -167,6 +241,7 @@ def do_logout(request):
         print e
         logger.error(e)
     return redirect(request.META['HTTP_REFERER'])
+
 
 
 def do_reg(request):

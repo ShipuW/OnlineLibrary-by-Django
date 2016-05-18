@@ -36,6 +36,7 @@
 						<li><a href="{% url 'login' %}">SIGN IN</a></li>
 						<li><a href="{% url 'reg' %}">SIGN UP</a></li>
 					{% else %}
+						<li><a href="{% url 'booklist' %}?favorites={{ request.user.id }}">LIKE</a></li>
 						<li><a href="{% url 'logout' %}">SIGN OUT</a></li>
 					{% endif %}
                 	<li><a href="#">ABOUT</a></li>

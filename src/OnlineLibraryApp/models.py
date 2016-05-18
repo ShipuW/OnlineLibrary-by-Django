@@ -58,7 +58,7 @@ class BookMark(models.Model):
     class Meta:
         db_table = 'bookmark'
     def __unicode__(self):
-        return self.name
+        return self.user.name+':'+self.book.name
     
 class BookCategory(models.Model):
 #    id = models.IntegerField(primary_key=True)

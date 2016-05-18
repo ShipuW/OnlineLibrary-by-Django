@@ -1484,3 +1484,76 @@ NoReverseMatch: Reverse for 'do_logout' with arguments '()' and keyword argument
 2016-05-14 16:22:03,809 [Thread-82:3244] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2016-05-14 17:43:23,020 [Thread-19:9116] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2016-05-14 20:51:53,875 [Thread-67:11228] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-14 22:04:13,484 [Thread-6:8984] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-14 22:11:38,038 [Thread-45:6432] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-14 22:11:38,302 [Thread-46:3872] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-14 23:03:35,227 [Thread-249:5724] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-15 17:21:49,828 [Thread-21:1076] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-16 18:00:44,171 [Thread-21:9668] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-18 23:56:21,098 [Thread-19:7528] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-19 00:26:28,338 [Thread-17:9964] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-19 00:27:46,068 [Thread-37:3468] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-19 00:27:46,306 [Thread-38:3820] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-19 00:29:20,321 [Thread-56:8836] [django.request:182] [base:get_response] [WARNING]- Not Found: /category/admin
+2016-05-19 01:31:03,621 [Thread-29:8636] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin/OnlineLibraryApp/bookmark/add/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python27\lib\site-packages\django\contrib\admin\options.py", line 541, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Python27\lib\site-packages\django\views\decorators\cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\Python27\lib\site-packages\django\contrib\admin\sites.py", line 244, in inner
+    return view(request, *args, **kwargs)
+  File "D:\Python27\lib\site-packages\django\contrib\admin\options.py", line 1437, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "D:\Python27\lib\site-packages\django\utils\decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\Python27\lib\site-packages\django\utils\decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "D:\Python27\lib\site-packages\django\utils\decorators.py", line 184, in inner
+    return func(*args, **kwargs)
+  File "D:\Python27\lib\site-packages\django\contrib\admin\options.py", line 1382, in changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "D:\Python27\lib\site-packages\django\contrib\admin\options.py", line 714, in log_addition
+    object_repr=force_text(object),
+  File "D:\Python27\lib\site-packages\django\utils\encoding.py", line 78, in force_text
+    s = six.text_type(s)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\models.py", line 61, in __unicode__
+    return self.name
+AttributeError: 'BookMark' object has no attribute 'name'
+2016-05-19 04:12:10,130 [Thread-2:2692] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /detail/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 162, in detail
+    return render(request, 'detail.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "D:\Python27\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "D:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "D:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 516, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 27: 'elseif', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
