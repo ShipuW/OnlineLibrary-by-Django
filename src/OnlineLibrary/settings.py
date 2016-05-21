@@ -221,3 +221,11 @@ LOGGING = {
         },
     }
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.126.com'  
+EMAIL_PORT = 25
+EMAIL_HOST_USER='w424065448@126.com'  
+EMAIL_HOST_PASSWORD='Wangshipu0' 
+EMAIL_SUBJECT_PREFIX = 'Jocelyn' 
+

@@ -12,7 +12,9 @@
 			<h1>Create a Free Account!</h1>
 		</div>
 		<p></p>
+			{% if localSentCode %}
 			<form action="{% url 'reg' %}" method="post">
+
                 {% csrf_token %}
 				<ul class="left-form">
 					<h2>New Account:</h2>
@@ -20,20 +22,46 @@
 						{{ reg_form.username }}
 						<div class="clear"> </div>
 					</li> 
+	
 					<li>
 						{{ reg_form.email }}
 						<div class="clear"> </div>
-					</li>  
+					</li> 	
+
 					<li>
                         {{ reg_form.password }}
 						<div class="clear"> </div>
 					</li>
+					<li>
+                        {{ reg_form.verifycode }}
+						<div class="clear"> </div>
+					</li>
+
+					
                     <input type="hidden" name="source_url" value="{{ request.META.HTTP_REFERER }}">
 					<input type="submit" value="Create And Login">
 					<div class="clear"> </div>
 				</ul>
 				<div class="clear"> </div>
 			</form>
+			{% else %}
+			<form action="{% url 'reg' %}" method="post">
+
+                {% csrf_token %}
+				<ul class="left-form">
+					<h2>Set Email:</h2>
+
+					<li>
+						{{ reg_form.email }}
+						<div class="clear"> </div>
+					</li> 					
+                    <input type="hidden" name="source_url" value="{{ request.META.HTTP_REFERER }}">
+					<input type="submit" value="Verify Email">
+					<div class="clear"> </div>
+				</ul>
+				<div class="clear"> </div>
+			</form>
+			{% endif %}
 	</div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from OnlineLibraryApp.models import Category, Book, User, BookMark, BookCategory, Comment
+from OnlineLibraryApp.models import *
 # Register your models here.
 admin.site.register(Category)
 admin.site.register(Book)

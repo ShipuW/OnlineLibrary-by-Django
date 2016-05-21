@@ -5,6 +5,7 @@ from django.db.models import Q
 from models import User
 import re
 
+
 class LoginForm(forms.Form):
 
     username = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Username", "required": "required",}),
@@ -20,6 +21,14 @@ class RegForm(forms.Form):
                               max_length=50,error_messages={"required": "email cannot null",})
     password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder": "Password", "required": "required",}),
                               max_length=20,error_messages={"required": "password cannot null",})
+    verifycode = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Verifycode","required": "required", }),
+                              max_length=50,error_messages={"required": "verifycode cannot null",})
+
+#  
+# class VerifyForm(forms.Form):
+#  
+#     email = forms.EmailField(widget=forms.TextInput(attrs={"placeholder": "Email", "required": "required",}),
+#                               max_length=50,error_messages={"required": "email cannot null",})
 
 
 class CommentForm(forms.Form):

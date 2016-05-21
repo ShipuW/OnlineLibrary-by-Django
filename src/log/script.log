@@ -1557,3 +1557,591 @@ Traceback (most recent call last):
   File "D:\Python27\lib\site-packages\django\template\base.py", line 516, in parse
     raise self.error(token, e)
 TemplateSyntaxError: Invalid block tag on line 27: 'elseif', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+2016-05-19 19:53:11,868 [Thread-3:12832] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-19 19:53:30,831 [Thread-23:7068] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-19 21:44:47,293 [Thread-17:9108] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-19 23:52:56,075 [Thread-19:2140] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-20 03:01:51,335 [Thread-20:1256] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-20 03:18:26,575 [Thread-21:9152] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-20 03:53:25,404 [Thread-19:3636] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-20 04:40:53,372 [Thread-2:9628] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 273, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-20 14:54:44,980 [Thread-4:6472] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-21 01:16:44,982 [Thread-11:252] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-21 01:20:14,917 [Thread-4:9172] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /verify/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view OnlineLibraryApp.views.do_verify didn't return an HttpResponse object. It returned None instead.
+2016-05-21 01:23:27,677 [Thread-2:9124] [django.request:182] [base:get_response] [WARNING]- Not Found: /verify/
+2016-05-21 01:23:38,576 [Thread-5:6928] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 277, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 01:24:27,970 [Thread-2:7780] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 277, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 01:24:54,750 [Thread-4:6940] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 277, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 01:27:16,733 [Thread-9:9008] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 277, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 01:27:17,466 [Thread-10:9004] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 277, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 01:27:47,598 [Thread-2:6688] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 277, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 01:27:48,736 [Thread-3:8524] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 277, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 01:27:49,703 [Thread-4:8340] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 277, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 01:30:22,296 [Thread-2:7548] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 278, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 01:30:32,207 [Thread-5:8824] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 278, in do_reg
+    return render(request, 'reg.html', locals())
+  File "D:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "D:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "D:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "D:\Python27\lib\site-packages\django\template\base.py", line 959, in render_annotated
+    return self.render(context)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "D:\Python27\lib\site-packages\django\template\defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "D:\Python27\lib\site-packages\django\core\urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'verify' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-05-21 02:36:29,263 [Thread-3:8456] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 254, in do_reg
+    print SENTCODE
+NameError: global name 'SENTCODE' is not defined
+2016-05-21 02:37:14,836 [Thread-6:7364] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 254, in do_reg
+    print SENTCODE
+NameError: global name 'SENTCODE' is not defined
+2016-05-21 02:37:19,078 [Thread-8:1780] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 254, in do_reg
+    print SENTCODE
+NameError: global name 'SENTCODE' is not defined
+2016-05-21 04:22:03,716 [Thread-3:8280] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'register@online_library.com', '424065448@qq.com', fail_silently=True)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 57, in send_mail
+    connection=connection)
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 433, in __init__
+    headers, cc, reply_to,
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 218, in __init__
+    raise TypeError('"to" argument must be a list or tuple')
+TypeError: "to" argument must be a list or tuple
+2016-05-21 04:33:00,108 [Thread-2:8632] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 262, in do_reg
+    fail_silently=False,
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 67, in open
+    self.connection.login(self.username, self.password)
+  File "D:\Python27\lib\smtplib.py", line 622, in login
+    raise SMTPAuthenticationError(code, resp)
+SMTPAuthenticationError: (530, 'Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28')
+2016-05-21 04:33:57,956 [Thread-2:9764] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'register@online_library.com', ['424065448@qq.com'], fail_silently=False)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 67, in open
+    self.connection.login(self.username, self.password)
+  File "D:\Python27\lib\smtplib.py", line 622, in login
+    raise SMTPAuthenticationError(code, resp)
+SMTPAuthenticationError: (530, 'Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28')
+2016-05-21 04:37:59,558 [Thread-2:9500] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'register@online_library.com', ['424065448@qq.com'], fail_silently=False)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 67, in open
+    self.connection.login(self.username, self.password)
+  File "D:\Python27\lib\smtplib.py", line 622, in login
+    raise SMTPAuthenticationError(code, resp)
+SMTPAuthenticationError: (530, 'Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28')
+2016-05-21 04:43:29,407 [Thread-2:2608] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'register@online_library.com', ['424065448@qq.com'], fail_silently=False)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 67, in open
+    self.connection.login(self.username, self.password)
+  File "D:\Python27\lib\smtplib.py", line 585, in login
+    raise SMTPException("SMTP AUTH extension not supported by server.")
+SMTPException: SMTP AUTH extension not supported by server.
+2016-05-21 04:44:50,450 [Thread-2:9080] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'register@online_library.com', ['424065448@qq.com'], fail_silently=False)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 67, in open
+    self.connection.login(self.username, self.password)
+  File "D:\Python27\lib\smtplib.py", line 585, in login
+    raise SMTPException("SMTP AUTH extension not supported by server.")
+SMTPException: SMTP AUTH extension not supported by server.
+2016-05-21 04:44:58,069 [Thread-4:9780] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'register@online_library.com', ['424065448@qq.com'], fail_silently=False)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 67, in open
+    self.connection.login(self.username, self.password)
+  File "D:\Python27\lib\smtplib.py", line 585, in login
+    raise SMTPException("SMTP AUTH extension not supported by server.")
+SMTPException: SMTP AUTH extension not supported by server.
+2016-05-21 04:45:25,976 [Thread-2:8044] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'register@online_library.com', ['424065448@qq.com'], fail_silently=False)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 67, in open
+    self.connection.login(self.username, self.password)
+  File "D:\Python27\lib\smtplib.py", line 622, in login
+    raise SMTPAuthenticationError(code, resp)
+SMTPAuthenticationError: (530, 'Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28')
+2016-05-21 04:49:06,292 [Thread-2:7308] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'register@online_library.com', ['424065448@qq.com'], fail_silently=False)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 67, in open
+    self.connection.login(self.username, self.password)
+  File "D:\Python27\lib\smtplib.py", line 622, in login
+    raise SMTPAuthenticationError(code, resp)
+SMTPAuthenticationError: (530, 'Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28')
+2016-05-21 04:51:09,904 [Thread-2:9688] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'register@online_library.com', ['424065448@qq.com'], fail_silently=False)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 107, in send_messages
+    sent = self._send(message)
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 123, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "D:\Python27\lib\smtplib.py", line 731, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (553, 'Mail from must equal authorized user', u'register@online_library.com')
+2016-05-21 05:00:54,678 [Thread-2:9480] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /reg/
+Traceback (most recent call last):
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\workspace\OnlineLibrary\src\OnlineLibraryApp\views.py", line 258, in do_reg
+    send_mail('subject', 'this is the message of email', 'services_jocelyn@yeah.net', ['424065448@qq.com'], fail_silently=False)
+  File "D:\Python27\lib\site-packages\django\core\mail\__init__.py", line 61, in send_mail
+    return mail.send()
+  File "D:\Python27\lib\site-packages\django\core\mail\message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "D:\Python27\lib\site-packages\django\core\mail\backends\smtp.py", line 67, in open
+    self.connection.login(self.username, self.password)
+  File "D:\Python27\lib\smtplib.py", line 622, in login
+    raise SMTPAuthenticationError(code, resp)
+SMTPAuthenticationError: (535, 'Error: authentication failed')

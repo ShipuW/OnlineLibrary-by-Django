@@ -1,4 +1,6 @@
 import logging
+import random
+from django.core.mail import send_mail  
 from django.shortcuts import render, redirect, HttpResponse
 from django.template import loader, Context, RequestContext
 #from models import Category, Book, User, BookMark, BookCategory, Comment
@@ -16,6 +18,7 @@ from django.db import connection
 from django.db.models import Count
 
 import json
+from django.template.context_processors import request
 
 logger = logging.getLogger('OnlineLibraryApp.views')
 
@@ -41,20 +44,30 @@ def index(request):
     c = Context()
     return HttpResponse(t.render(c))
 '''
-isLike = False
 
-def global_setting(request):
+SENTCODE = False
+flag = False
+PREURL = None
+VERIFYCODE = None
+
+def init():
+    global SENTCODE,PREURL
+    SENTCODE = False
+    PREURL = None
     
+def global_setting(request):
+    #init()#init befor reg error
     return{'SITE_URL': settings.SITE_URL,
            'SITE_NAME': settings.SITE_NAME,
            'SITE_DESC': settings.SITE_DESC,
            'WEIBO_SINA': settings.WEIBO_SINA,
            'WEIBO_TENCENT': settings.WEIBO_TENCENT,
            'PRO_RSS': settings.PRO_RSS,
-           'PRO_EMAIL': settings.PRO_EMAIL,}
+           'PRO_EMAIL': settings.PRO_EMAIL,
+           }
 
 def index(request):
-
+    init()
     try:
         index_bookList = Book.objects.all()[:12]
         
@@ -65,6 +78,7 @@ def index(request):
     return render(request, 'index.html', locals())
 
 def booklist(request):
+    init()
     try:
         cid = request.GET.get('category',None)
         kid = request.GET.get('keyword',None)
@@ -76,9 +90,9 @@ def booklist(request):
             print user
             #bookList = user.favoritebooks.all()
             bookList = getPage(request, user.favoritebooks.all())
-            print ("123")
-            for b in bookList:
-                print b
+            #print ("123")
+#             for b in bookList:
+#                 print b
         else:
             if (kid):
                 '''
@@ -106,6 +120,7 @@ def booklist(request):
     return render(request, 'booklist.html', locals())
 
 def category(request):
+    init()
     try:
         categoryList = Category.objects.all()
     except Exception as e:
@@ -125,6 +140,7 @@ def getPage(request, bookList):
     return bookList
 
 def detail(request):
+    init()
     try:   
         id = request.GET.get('id', None)
         try:
@@ -152,8 +168,10 @@ def detail(request):
         except Book.DoesNotExist:
             
             return render(request, 'failure.html', {'reason': ''})
-
+        
         commentList = book.comment_set.all()
+
+            
     except Exception as e:
         logger.error(e)
     
@@ -242,37 +260,199 @@ def do_logout(request):
         logger.error(e)
     return redirect(request.META['HTTP_REFERER'])
 
+def createVerifyCode(): 
+    chars=['0','1','2','3','4','5','6','7','8','9'] 
+    x = random.choice(chars),random.choice(chars),random.choice(chars),random.choice(chars) 
+    verifyCode = "".join(x) 
+    return verifyCode 
+
+def do_reg(request):
+    
+    #print "123"
+    #send_mail('Register Verification - Online Library', createVerifyCode() , 'w424065448@126.com', ['424065448@qq.com'], fail_silently=False)
+    global SENTCODE,PREURL,VERIFYCODE
+    localSentCode = SENTCODE
+
+    
+    try:
+        
+        if request.method == 'POST':
+
+                #print "123"
+                #send_mail('Register Verification - Online Library', createVerifyCode() , 'w424065448@126.com', [regEmail], fail_silently=False)
+                reg_form = RegForm(request.POST)
+                
+                #print SENTCODE
+                #return render(request, 'reg.html', locals())
+#                 print reg_form
+                
+#                 print email
+                print SENTCODE
+                print VERIFYCODE
+                if SENTCODE:
+                    print "test1"
+                    if reg_form.is_valid():
+                        vcode = reg_form.cleaned_data["verifycode"]
+                        
+                        if vcode == VERIFYCODE:
+                            print "test2"
+                            user = User(username=reg_form.cleaned_data["username"],
+                                        email=reg_form.cleaned_data["email"],
+                                        password=make_password(reg_form.cleaned_data["password"]),
+                                        )
+                            #user = User.objects.create(username=reg_form.cleaned_data["username"],
+                            #            email=reg_form.cleaned_data["email"],
+                            #            password=make_password(reg_form.cleaned_data["password"]),)
+                            print(user)
+                            user.save()
+            
+                            
+                            user.backend = 'django.contrib.auth.backends.ModelBackend' 
+                            login(request, user)
+                           
+                            return redirect(PREURL)
+                        else:
+                            return render(request, 'failure.html', {'reason': 'verify code errror'})
+                    else:
+                        
+                        return render(request, 'failure.html', {'reason': reg_form.errors})
+                else:
+                    print "test3"
+                    reg_form.is_valid()#clean in this method
+                    regEmail = reg_form.cleaned_data["email"]
+
+                    #regEmail=reg_form.cleaned_data["email"]
+                    VERIFYCODE = createVerifyCode()
+                    send_mail('Register Verification - Online Library', VERIFYCODE, 'w424065448@126.com', [regEmail], fail_silently=False)
+                    print "sent email"
+                    PREURL = request.POST.get('source_url')
+                
+                
+                SENTCODE = True
+                localSentCode = SENTCODE
+                print SENTCODE
+                
+        else:
+
+            #reg_form = RegForm({'username':'default_name','password':make_password('123465'),'verifycode':'default_code','email':''})
+            reg_form = RegForm()
+            #verify_form = VerifyForm()#noticc this!
+    except Exception as e:
+        logger.error(e)
+
+    return render(request, 'reg.html', locals())
+
+
+'''
+
+def do_reg(request):
+    #print "123"
+    #send_mail('Register Verification - Online Library', createVerifyCode() , 'w424065448@126.com', ['424065448@qq.com'], fail_silently=False)
+    global flag
+    global preurl
+    
+    try:
+        
+        if request.method == 'POST':
+            SENTCODE = True
+            if SENTCODE:
+                #print "123"
+                #send_mail('Register Verification - Online Library', createVerifyCode() , 'w424065448@126.com', [regEmail], fail_silently=False)
+                reg_form = RegForm(request.POST)
+                print "test0" 
+                regEmail = reg_form.cleaned_data["email"]
+                print reg_form
+                send_mail('Register Verification - Online Library', createVerifyCode() , 'w424065448@126.com', [regEmail], fail_silently=False)
+                #print SENTCODE
+                #return render(request, 'reg.html', locals())
+#                 print reg_form
+                
+#                 print email
+                print flag
+                if flag:
+                    print "test1"
+                    if reg_form.is_valid():
+                        print "test2"
+                        user = User(username=reg_form.cleaned_data["username"],
+                                    email=reg_form.cleaned_data["email"],
+                                    password=make_password(reg_form.cleaned_data["password"]),
+                                    )
+                        #user = User.objects.create(username=reg_form.cleaned_data["username"],
+                        #            email=reg_form.cleaned_data["email"],
+                        #            password=make_password(reg_form.cleaned_data["password"]),)
+                        print(user)
+                        user.save()
+        
+                        
+                        user.backend = 'django.contrib.auth.backends.ModelBackend' 
+                        login(request, user)
+                       
+                        return redirect(preurl)
+                    else:
+                        SENTCODE = False
+                        return render(request, 'failure.html', {'reason': reg_form.errors})
+                else:
+                    
+                    preurl = request.POST.get('source_url')
+                    
+                flag = True
+            else:
+
+                
+        else:
+
+            #reg_form = RegForm({'username':'default_name','password':make_password('123465'),'verifycode':'default_code','email':''})
+            reg_form = RegForm()
+            #verify_form = VerifyForm()#noticc this!
+    except Exception as e:
+        logger.error(e)
+
+    return render(request, 'reg.html', locals())
 
 
 def do_reg(request):
     try:
         if request.method == 'POST':
+            sentVcode = True
             reg_form = RegForm(request.POST)
-            
+            email = reg_form.cleaned_data["email"]
+            print email
             if reg_form.is_valid():
-                user = User(username=reg_form.cleaned_data["username"],
-                            email=reg_form.cleaned_data["email"],
-                            password=make_password(reg_form.cleaned_data["password"]),)
-                #user = User.objects.create(username=reg_form.cleaned_data["username"],
-                #            email=reg_form.cleaned_data["email"],
-                #            password=make_password(reg_form.cleaned_data["password"]),)
-                #print(user)
+
                 user.save()
 
-                
-                user.backend = 'django.contrib.auth.backends.ModelBackend' 
-                login(request, user)
                 return redirect(request.POST.get('source_url'))
             else:
                 return render(request, 'failure.html', {'reason': reg_form.errors})
         else:
-            reg_form = RegForm()
+            reg_form = RegForm({'username':'default_name','password':make_password('123465'),'verifycode':'default_code','email':''})
+
     except Exception as e:
         logger.error(e)
     return render(request, 'reg.html', locals())
 
+'''
+
+
+# def do_verify(request):
+#     try:
+#         if request.method == 'POST':
+#              
+#             verify_form = VerifyForm(request.POST)
+#             print verify_form
+#             if verify_form.is_valid():
+#                 print verify_form.email
+# #                 return render(request, 'reg.html', locals())
+#             else:
+#                 return render(request, 'failure.html', {'reason': verify_form.errors})
+#         else:
+#             verify_form = VerifyForm()
+#     except Exception as e:
+#         logger.error(e)
+#     return render(request, 'reg.html', locals())
 
 def do_login(request):
+    init()
     try:
         if request.method == 'POST':
             login_form = LoginForm(request.POST)
@@ -294,3 +474,5 @@ def do_login(request):
     except Exception as e:
         logger.error(e)
     return render(request, 'login.html', locals())
+
+

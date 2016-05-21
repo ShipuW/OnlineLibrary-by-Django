@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^like/', do_like, name='like'),
     url(r'^unlike/', do_unlike, name='unlike'),
     url(r'^reg/', do_reg, name='reg'),
+    #url(r'^reg/', do_verify, name='verify'),
     url(r'^login/', do_login, name='login'),
 
 ]
