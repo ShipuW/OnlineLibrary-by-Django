@@ -2145,3 +2145,9 @@ Traceback (most recent call last):
   File "D:\Python27\lib\smtplib.py", line 622, in login
     raise SMTPAuthenticationError(code, resp)
 SMTPAuthenticationError: (535, 'Error: authentication failed')
+2016-05-21 13:54:02,453 [Thread-17:8688] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-21 13:59:24,943 [Thread-50:9992] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-21 13:59:37,795 [Thread-52:10148] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-21 14:32:42,821 [Thread-84:7212] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-21 14:32:42,887 [Thread-85:9632] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-05-21 23:46:11,062 [Thread-29:2992] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico

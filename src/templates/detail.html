@@ -20,7 +20,7 @@
 					<div class=" single-profile">
 						<h4> Author : {{ book.author }}</ </h4>
 					</div>
-					
+					{% if request.user.is_authenticated %}
 					<div class="like_button">
 						{% if isLike %}
 							<a href="{% url 'unlike' %}?id={{ book.id }}" rel="" class="search-button">UNLIKE</a>
@@ -31,6 +31,11 @@
 							<input type="submit" value="LIKE" class="search-button" />
 						</form-->
 					</div>
+					{% else %}
+					<div class = "go_button">
+						<a href="{% url 'login' %}" rel="" class="go_login_button" >登录收藏书籍</a>
+					</div>
+					{% endif%}
 					
 					<div class="cal">
 						<ul>

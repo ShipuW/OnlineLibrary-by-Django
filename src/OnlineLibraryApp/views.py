@@ -143,8 +143,10 @@ def detail(request):
     init()
     try:   
         id = request.GET.get('id', None)
+        
         try:
             book = Book.objects.all().get(id=id)
+            
             if request.user.is_authenticated():
                 print
                 likeRecord = BookMark.objects.all().filter(book_id__exact = id, user__exact = request.user)
@@ -156,7 +158,9 @@ def detail(request):
                     isLike = False
             else:
                 pass
-            print isLike
+            
+            
+            commentList = book.comment_set.all()
             '''
             print book
             if book:
@@ -169,7 +173,7 @@ def detail(request):
             
             return render(request, 'failure.html', {'reason': ''})
         
-        commentList = book.comment_set.all()
+        
 
             
     except Exception as e:
